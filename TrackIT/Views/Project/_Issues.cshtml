@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TrackIT.Models.Issue>
+@{
+    string issueClassName = "";
+}
+<div class="grid_10">
+    <b>
+        @{
+            string statusTypeFilter = "All";
+            if (ViewBag.CurrentStatus != null)
+            {
+                statusTypeFilter = ((TrackIT.Models.StatusType)((IEnumerable<TrackIT.Models.StatusType>)ViewBag.StatusTypes).SingleOrDefault(s => s.Id == ViewBag.CurrentStatus)).Name;
+            }
+        }
+        @statusTypeFilter Issues </b>
+    <div class="issueheader">
+        <div class="issueheader-id issue-table-left">
+            Id
+        </div>
+        <div class="issueheader-summary issue-table-in">
+            Summary
+        </div>
+        <div class="issueheader-priority issue-table-in">
+            Priority
+        </div>
+        <div class="issueheader-status issue-table-in">
+            Status
+        </div>
+        <div class="issueheader-duedate issue-table-right">
+            Due Date
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    @foreach (var item in Model)
+    {
+        if (item.Status == 1)
+        {
+            issueClassName = "issue-waiting";
+        }
+        if (item.Status == 2)
+        {
+            issueClassName = "issue-inprogress";
+        }
+        if (item.Status == 3)
+        {
+            issueClassName = "issue-closed";
+        }
+        if (item.Status == 4)
+        {
+            issueClassName = "issue-resolved";
+        }
+        <div class="issuelist @issueClassName">
+            <div class="issueheader-id issue-table-left">
+                @item.Id
+            </div>
+            <div class="issueheader-summary issue-table-in">
+                @Html.ActionLink(item.Summary, "Edit", "Issue", new { id = item.Id }, null)
+            </div>
+            <div class="issueheader-priority issue-table-in">
+                @{
+           var priorityName = ((TrackIT.Models.PriorityType)((IEnumerable<TrackIT.Models.PriorityType>)ViewBag.PriorityTypes).SingleOrDefault(p => p.Id == item.Priority)).Name;
+                }
+                @priorityName
+            </div>
+            <div class="issueheader-status issue-table-in">
+                @{
+           var statusName = ((TrackIT.Models.StatusType)((IEnumerable<TrackIT.Models.StatusType>)ViewBag.StatusTypes).SingleOrDefault(s => s.Id == item.Status)).Name;
+                }
+                @statusName
+            </div>
+            <div class="issueheader-duedate issue-table-right">
+                @(item.DueDate.HasValue ? string.Format("{0:dd/MM/yyyy}", item.DueDate) : "-")
+            </div>
+        </div>
+    }
+</div>

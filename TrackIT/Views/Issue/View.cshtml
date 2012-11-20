@@ -1,0 +1,43 @@
+﻿@model TrackIT.Models.Issue
+@{
+    ViewBag.Title = "View";
+}
+<div class="grid_12 issueheader">
+    @Model.Summary
+</div>
+<div class="grid_2">
+    Description:
+</div>
+<div class="grid_10">
+    @Html.EditorFor(m => m.Description)
+</div>
+<div class="grid_2">
+    Priority:</div>
+<div class="grid_10">
+    @Html.DropDownListFor(m => m.Priority, new SelectList(ViewBag.PriorityTypes, "Id", "Name"))
+</div>
+<div class="grid_2">
+    Staus:</div>
+<div class="grid_10">
+    @Html.DropDownListFor(m => m.Status, new SelectList(ViewBag.StatusTypes, "Id", "Name"))
+</div>
+<div class="grid_2">
+    Create Date:</div>
+<div class="grid_10">
+    @Html.EditorFor(m => m.CreateDate)
+</div>
+<div class="grid_2">
+    Update Date:</div>
+<div class="grid_10">
+    @Html.EditorFor(m => m.UpdateDate)
+</div>
+<div class="grid_2">
+    Due Date:</div>
+<div class="grid_10">
+    @Html.EditorFor(m => m.DueDate)
+</div>
+<div class="grid_2">
+    Close Date:</div>
+<div class="grid_10">
+    @Html.EditorFor(m => m.CloseDate)
+</div>

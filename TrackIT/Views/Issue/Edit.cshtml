@@ -1,0 +1,89 @@
+﻿@model TrackIT.Models.Issue
+@{
+    ViewBag.Title = "View";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/SwfUpload/jquery-asyncUpload-0.1.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/SwfUpload/swfupload.js")" type="text/javascript"></script>
+@Html.Partial("_ProjectDetails", (TrackIT.Models.Project)ViewBag.CurrentProject)
+@Html.Partial("_IssueFilter", (TrackIT.Models.Project)@ViewBag.CurrentProject)
+<script>
+    $(function () {
+        $("#dialog-form").dialog({
+            autoOpen: false,
+            height: 300,
+            width: 500,
+            modal: true,
+            buttons: {
+                "Upload File": function () {
+                    allFields.removeClass("ui-state-error");
+                },
+                Cancel: function () {
+                    $(this).dialog("close");
+                }
+            },
+            close: function () {
+                allFields.val("").removeClass("ui-state-error");
+            }
+        });
+
+        $("#addFile")
+            .button()
+            .click(function () {
+                $("#dialog-form").dialog("open");
+            });
+    });
+
+    $(function () {
+        $("#newFile").makeAsyncUploader({
+            upload_url: "/Issue/AsyncUpload/@Model.Id", // Important! This isn't a directory, it's a HANDLER such as an ASP.NET MVC action method, or a PHP file, or a Classic ASP file, or an ASP.NET .ASHX handler. The handler should save the file to disk (or database).
+            flash_url: '/Scripts/SwfUpload/swfupload.swf',
+            button_image_url: '/Scripts/SwfUpload/blankButton.png'
+        });
+    });
+</script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="grid_10">
+        <div class="box ui-corner-all">
+            <h1>
+                Edit Issue</h1>
+            <label>
+                <span>Project:</span>
+                @Html.DropDownListFor(m => m.ProjectId, new SelectList(ViewBag.Projects, "Id", "Name", Model.ProjectId))
+            </label>
+            <label>
+                <span>Summary:</span>
+                @Html.EditorFor(model => model.Summary)
+            </label>
+            <label>
+                <span>Description:</span>
+                @Html.EditorFor(model => model.Description)</label>
+            <label>
+                <span>Priority:</span>
+                @Html.DropDownListFor(m => m.Priority, new SelectList(ViewBag.PriorityTypes, "Id", "Name", Model.Priority))</label>
+            <label>
+                <span>Status:</span>
+                @Html.DropDownListFor(m => m.Status, new SelectList(ViewBag.StatusTypes, "Id", "Name", Model.Status))</label>
+            <label>
+                <span>Create Date:</span>
+                @Html.EditorFor(m => m.CreateDate)</label>
+            <label>
+                <span>Update Date:</span>
+                @Html.EditorFor(m => m.UpdateDate)</label>
+            <label>
+                <span>Due Date:</span>
+                @Html.EditorFor(model => model.DueDate)</label>
+            <label>
+                <span>Close Date:</span>
+                @Html.EditorFor(m => m.CloseDate)</label>
+            <label>
+                <span></span>
+                <input type="submit" value="Edit" /></label>
+        </div>
+
+        @Html.Partial("_IssueFileList", (IEnumerable<TrackIT.Models.File>)ViewBag.IssueFileList)
+    </div>
+}

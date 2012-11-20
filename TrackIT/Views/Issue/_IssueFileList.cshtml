@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TrackIT.Models.File>
+@{
+    ViewBag.Title = "ViewPage1";
+}
+<div id="issueFileList" class="box files ui-corner-all">
+    <h1>
+        Files</h1>
+    <div class="issueheader">
+        <div class="issue-table-left issueheader-id">
+            Id</div>
+        <div class="issue-table-in issueheader-filename">
+            File Name</div>
+        <div class="issue-table-in issue-table-right issueheader-uploaddate">
+            Upload Date</div>
+    </div>
+    <div class="issuefilelist">
+        @foreach (var item in Model)
+        {
+            <div class="issuelist issue-waiting">
+                <div class="issue-table-left issueheader-id">
+                    @item.Id
+                </div>
+                <div class="issue-table-in issueheader-filename">
+                    @{
+                        var contentURL = "~/Content/" + @TrackIT.Utility.ResolveFileExtension(item.Name);
+                        var fileURL = "~/Content/Files/" + item.Name;
+                    }
+                    <img src="@Url.Content(contentURL)" style="height:16px; width:16px;" />&nbsp;<a href="@Url.Content(fileURL)" target="_blank">@item.Name</a>
+                </div>
+                <div class="issue-table-in issue-table-right issueheader-uploaddate">
+                    @string.Format("{0:dd/MM/yyyy}", item.UploadDate)
+                </div>
+            </div>
+        }
+    </div>
+    @*@using (Ajax.BeginForm("AsyncUpload", new AjaxOptions { UpdateTargetId = "issueFileList" }))
+    {*@
+    <div id="fileUpload" class="right">
+        <!--<input type="button" id="addFile" value="Add File" />-->
+        <input type="file" id="newFile" name="newFile" />
+    </div>
+    @*}*@
+</div>

@@ -1,0 +1,15 @@
+﻿@model TrackIT.Models.Project
+@{
+    ViewBag.Title = "_ProjectDetails";
+}
+<div class="grid_12">
+    <div class="ui-corner-all ui-widget project-details">
+        <h3>
+            Project Details : @Html.ActionLink("Edit", "Edit", "Project", new { id = @Model.Id }, null)
+        </h3>
+        Project Name: @Model.Name<br />
+        Start Date: @Model.StartDate
+    </div>
+</div>
+<div class="clear">
+</div>

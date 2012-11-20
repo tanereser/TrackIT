@@ -1,0 +1,33 @@
+﻿@model TrackIT.Models.Project
+@{
+    ViewBag.Title = "Create";
+}
+<div class="grid_12">
+    <h2>
+        Create</h2>
+</div>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="grid_10">
+        <div class="box ui-corner-all">
+            <h1>
+                Create New Project</h1>
+            <label>
+                <span>Project Name:</span>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </label>
+            <label>
+                <span>Short Name:</span>
+                @Html.EditorFor(model => model.ShortName)
+                @Html.ValidationMessageFor(model => model.ShortName)
+            </label>
+            <label>
+                <span></span>
+                <input type="submit" value="Create" class="button" /></label>
+        </div>
+    </div>
+}

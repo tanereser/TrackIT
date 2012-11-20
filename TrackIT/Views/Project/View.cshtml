@@ -1,0 +1,10 @@
+﻿@model TrackIT.Models.Project
+@{
+    ViewBag.Title = "View";
+}
+@Html.Partial("_ProjectDetails", (TrackIT.Models.Project)@Model)
+@Html.Partial("_IssueFilter", (TrackIT.Models.Project)@Model)
+@*<div class="grid_10">
+    @Html.Partial("_IssueChart")*@
+    @Html.Partial("_Issues", (IEnumerable<TrackIT.Models.Issue>)ViewBag.Issues)
+@*</div>*@

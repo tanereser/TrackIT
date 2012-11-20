@@ -1,0 +1,379 @@
+/*
+  960 Grid System ~ Text CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+*/
+
+/* `Basic HTML
+----------------------------------------------------------------------------------------------------*/
+
+body
+{
+    font: 11px/1.5 'Helvetica Neue' , Arial, 'Liberation Sans' , FreeSans, sans-serif;
+}
+
+pre, code
+{
+    font-family: 'DejaVu Sans Mono' , Menlo, Consolas, monospace;
+}
+
+hr
+{
+    border: 0 #ccc solid;
+    border-top-width: 1px;
+    clear: both;
+    height: 0;
+}
+
+/* `Headings
+----------------------------------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+}
+h1
+{
+    font-size: 18px;
+}
+
+h2
+{
+    font-size: 16px;
+}
+
+h3
+{
+    font-size: 14px;
+}
+
+h4
+{
+    font-size: 12px;
+}
+
+h5
+{
+    font-size: 10px;
+}
+
+h6
+{
+    font-size: 8px;
+}
+
+/* `Spacing
+----------------------------------------------------------------------------------------------------*/
+
+ol
+{
+    list-style: decimal;
+}
+
+ul
+{
+    list-style: disc;
+}
+
+li
+{
+    margin-left: 30px;
+}
+
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, figure
+{
+    margin-bottom: 20px;
+}
+/* 
+----------------------------------------------------------------------------------------------------*/
+@font-face
+{
+    font-family: GrablauWeb;
+    src: url(Fonts/GraublauWeb.otf);
+}
+
+a
+{
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+.header
+{
+    background: url('images/header-bg.png');
+    float: left;
+    padding: 10px;
+    border-bottom: 1px solid #B2B2B2;
+    margin-bottom: 20px;
+}
+.header-left
+{
+    width: 180px;
+    height: 80px;
+    float: left;
+}
+.header-left a
+{
+    font: 3em GrablauWeb;
+    color: #000;
+}
+.header-right
+{
+    background: url('images/header-bg.png');
+    width: 740px;
+    float: left;
+}
+
+.issueheader
+{
+    /*background: #DDD;*/
+    background: url('images/list-header.png');
+    float: left; /*padding: 10px 10px 8px 10px;*/
+    font-weight: bold;
+    color: #FFF;
+    border-bottom: 1px solid #333;
+}
+.issuelist
+{
+    /*padding: 6px 10px 6px 10px;*/
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #B9B9B9;
+    float: left;
+    background: url('images/list-item.png');
+}
+.issuelist:hover
+{
+    background: url('images/list-item-lighter.png');
+}
+.issuefilter
+{
+    font-size: 1.1em;
+}
+.issueheader-summary, .issueheader-priority, .issueheader-status, .issueheader-createdate, .issueheader-updatedate, .issueheader-duedate, .issueheader-closedate, issueheader-actions, .issue-id, .issue-summary, .issue-priority, .issue-status, .issue-createdate, .issue-updatedate, .issue-duedate, .issue-closedate, .issue-actions
+{
+    float: left;
+}
+.issue-id, .issueheader-id
+{
+    width: 19px;
+    float: left;
+}
+.issue-summary, .issueheader-summary
+{
+    width: 485px;
+}
+.issue-priority, .issueheader-priority
+{
+    width: 52px;
+}
+.issue-status, .issueheader-status
+{
+    width: 96px;
+}
+.issueheader-createdate, .issueheader-updatedate, .issueheader-duedate, .issueheader-closedate, .issueheader-actions, .issue-createdate, .issue-updatedate, .issue-duedate, .issue-closedate, .issue-actions
+{
+    width: 96px;
+}
+.multi-line
+{
+    width: 400px;
+    height: 200px;
+}
+.issue-waiting
+{
+    background: url('images/list-item.png');
+}
+.issue-waiting, .issue-waiting a
+{
+    color: #2e2e2e;
+}
+.issue-inprogress
+{
+    background: url('images/list-item-blue.png');
+}
+.issue-inprogress, .issue-inprogress a
+{
+    color: #354FB6;
+}
+.issue-closed
+{
+    background: url('images/list-item-red.png');
+}
+.issue-closed, .issue-closed a
+{
+    color: #CA1111;
+}
+.issue-resolved
+{
+    background: url('images/list-item-green.png');
+}
+.issue-resolved, .issue-resolved a
+{
+    color: #2C6300;
+}
+.issue-table-left
+{
+    float: left;
+    border-left: 1px solid #B9B9B9;
+    padding: 6px 0 6px 10px;
+}
+
+.issue-table-in
+{
+    float: left;
+    padding: 6px 0 6px 4px;
+    border-left: 1px solid #B9B9B9;
+}
+
+.issue-table-right
+{
+    float: left;
+    padding: 6px 0 6px 4px;
+    border-left: 1px solid #B9B9B9;
+    border-right: 1px solid #B9B9B9;
+}
+
+.issueheader-filename
+{
+    width: 628px;
+}
+
+.issueheader-uploaddate
+{
+    width: 100px;
+}
+
+
+.newissue
+{
+    float: left;
+}
+.left
+{
+    float: left;
+}
+
+input[type=submit], a.button
+{
+    font-size: 0.9em;
+}
+input[type=text], select, textarea
+{
+    font-size: 1em;
+    padding: 4px;
+    font-family: Tahoma;
+}
+.project-details
+{
+    /*background: url('images/header-bg.png');     float: left;*/
+    font-size: 0.9em;
+    background: #f3fafe;
+    border: 1px solid #D0D0D0;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.issue-filter
+{
+    border: 1px solid #CCC;
+    padding-left: 5px;
+}
+
+.form-label
+{
+    float: left;
+    width: 10%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.form-element
+{
+    float: left;
+    display: block;
+    width: 90%;
+}
+/*----------------------------------*/
+
+form, input, select, textarea
+{
+    margin: 0;
+    padding: 0;
+}
+
+div.box
+{
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid #CCC;
+}
+
+div.box h1
+{
+    font-size: 1.2em;
+    padding: 5px 0 5px 5px;
+    color: #000;
+}
+
+div.box label
+{
+    width: 100%;
+    display: block;
+    padding: 10px 0 10px 0;
+}
+
+div.box label span
+{
+    display: block;
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding: 5px 20px 0 0;
+}
+
+.files
+{
+    padding: 4px;
+}
+
+.files input
+{
+    font-size: 0.9em;
+    text-align: right;
+}
+
+.files .right
+{
+    text-align: right;
+}
+
+/* AsyncUploader
+----------------------------------------------------------*/
+DIV.ProgressBar  
+{
+    width: 100px; 
+    padding: 0; 
+    border: 1px solid black; 
+    margin-right: 1em; 
+    height:.75em; 
+    margin-left:1em; 
+    display:-moz-inline-stack; 
+    display:inline-block; 
+    zoom:1; 
+    *display:inline; 
+   }
+DIV.ProgressBar DIV { background-color: Green; font-size: 1pt; height:100%; float:left; }
+SPAN.asyncUploader OBJECT { position: relative; top: 5px; left: 0px; }
+#SWFUpload
+{
+    width 200px;
+}
+.footer
+{
+    margin-top: 20px;
+    text-align: right;
+}

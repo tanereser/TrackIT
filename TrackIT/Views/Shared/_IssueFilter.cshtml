@@ -1,0 +1,13 @@
+﻿@model TrackIT.Models.Project
+<div class="grid_2 issuefilter">
+        <h4>
+            Issue Filter:</h4>
+        @Html.ActionLink("All Issues", "View", "Project", new { id = Model.Id }, null)<br />
+        @Html.ActionLink("Waiting Issues", "View", "Project", new { id = Model.Id, status = 1 }, null)<br />
+        @Html.ActionLink("In Progress Issues", "View", "Project", new { id = Model.Id, status = 2 }, null)<br />
+        @Html.ActionLink("Closed Issues", "View", "Project", new { id = Model.Id, status = 3 }, null)<br />
+        @Html.ActionLink("Resolved Issues", "View", "Project", new { id = Model.Id, status = 4 }, null)<br />
+        <br />
+        <p>
+            <b>@Html.ActionLink("New Issue", "Create", "Issue", new { id = Model.Id }, new { @class = "button" })</b></p>
+</div>
